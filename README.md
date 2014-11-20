@@ -1,2 +1,2 @@
-Vagrantfile for testing obs-server module for puppet.
+Vagrantfile for obs-server puppet module.
 ===============
