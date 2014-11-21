@@ -1,0 +1,22 @@
+#!/bin/bash
+# variables:
+VAGRANT_VERSION=$(vagrant -v | awk '{print $2}')
+VAGRANT_LASTEST="1.6.5"
+BOX_NAME="berendt/opensuse-13.1-x86_64"
+
+# check version and install
+if [[ $VAGRANT_VERSION !=  $VAGRANT_LASTEST ]];
+  then
+    echo "You need to update Vagrant from web site https://www.vagrantup.com/downloads.html up to $VAGRANT_LASTEST version"
+  else 
+    echo "You have updated version of Vagrant"
+fi
+
+# check for correct box
+if [[ `vagrant box list | grep $BOX_NAME| awk '{print $1}' ` != $BOX_NAME ]];
+  then
+    vagrant box add $BOX_NAME
+fi
+# startup
+echo "Starting vagrant VM"
+vagrant up
