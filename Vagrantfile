@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # puppet settings and paths
     config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet-manifests/manifests"
-      puppet.manifest_file = "site.pp"
+      puppet.manifest_file = "default.pp"
       puppet.module_path = "puppet-manifests/modules"
       puppet.hiera_config_path = "puppet-manifests/hiera/common-example.yaml"
       puppet.options = "--verbose --debug"
